@@ -1,5 +1,11 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+buildscript {
+    dependencies {
+        classpath("org.jetbrains.dokka:dokka-gradle-plugin:0.9.17")
+    }
+}
+
 plugins {
     java
     kotlin("jvm") version "1.2.51"
@@ -22,4 +28,9 @@ configure<JavaPluginConvention> {
 }
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
+}
+
+dokka {
+    outputFormat = 'html'
+    outputDirectory = Paths.get("docs", "api").toString()
 }

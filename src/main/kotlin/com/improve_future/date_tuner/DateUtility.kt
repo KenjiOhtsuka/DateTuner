@@ -16,10 +16,21 @@ object DateUtility {
         return formatToSlashSeparatedDate(date)
     }
 
+    /**
+     * Convert LocalDate to String such as "2018/07/29"
+     *
+     * @param localDate
+     */
     fun formatToSlashSeparatedDate(localDate: LocalDate): String {
         return formatToSlashSeparatedDate(
                 createDate(localDate))
     }
+
+    /**
+     * Convert LocalDate to String such as "2018-07-29".
+     *
+     * @param localDate
+     */
     fun formatToNullableSlashSeparatedDate(localDate: LocalDate?): String? {
         localDate ?: return null
         return formatToSlashSeparatedDate(localDate)
@@ -27,19 +38,41 @@ object DateUtility {
 
     private val slashFormatterFromYearMonthToYearMonth =
             DateTimeFormatter.ofPattern("yyyy/MM")
+
+    /**
+     * Convert YearMonth to String such as "2018/08"
+     *
+     * @param yearMonth
+     */
     fun formatToSlashSeparatedYearMonth(yearMonth: YearMonth) : String {
         return yearMonth.format(slashFormatterFromYearMonthToYearMonth)
     }
 
     private val hyphenDateFormatter = SimpleDateFormat("yyyy-MM-dd")
+    /**
+     * Convert Date to String such as "2018-07-29"
+     *
+     * @param date
+     */
     fun formatToHyphenSeparatedDate(date: Date): String {
         return hyphenDateFormatter.format(date)
     }
+
+    /**
+     * Convert LocalDate to String such as "2018-07-29"
+     *
+     * @param localDate
+     */
     fun formatToHyphenSeparatedDate(localDate: LocalDate): String {
         return formatToHyphenSeparatedDate(
                 createDate(localDate))
     }
 
+    /**
+     * Convert Date? to String? such as "2018-07-29"
+     *
+     * @param date
+     */
     fun formatToNullableHyphenSeparatedDate(date: Date?): String? {
         if (date == null) return null
         return hyphenDateFormatter.format(date)
@@ -69,10 +102,19 @@ object DateUtility {
     // <editor-fold desc="time formatter">
     private val colonFormatterToHourMinute =
         DateTimeFormatter.ofPattern("HH:mm")
+
+    /**
+     * Convert LocalTime to String such as "12:34".
+     *
+     * @param time
+     */
     fun formatToColonSeparatedHourMinute(time: LocalTime): String {
         return colonFormatterToHourMinute.format(time)
     }
 
+    /**
+     * Convert LocalTime to String? such as "12:34".
+     */
     fun formatToNullableColonSeparatedHourMinute(
             time: LocalTime?): String? {
         if (time == null) return null
@@ -108,6 +150,9 @@ object DateUtility {
         return Date()
     }
 
+    /**
+     * Create Date that indicate current time on yesterday.
+     */
     fun createNowOfYesterday(): Date {
         val calendar = Calendar.getInstance()
         calendar.time = Date()
@@ -142,10 +187,21 @@ object DateUtility {
         return YearMonth.of(year, month)
     }
 
+    /**
+     * Create YearMonth instance.
+     *
+     * @param year
+     * @param month
+     */
     fun createYearMonth(year: Number, month: Number): YearMonth {
         return createYearMonth(year.toInt(), month.toInt())
     }
 
+    /**
+     * Create YearMonth instance.
+     *
+     * @param date
+     */
     fun createYearMonth(date: Date = Date()): YearMonth {
         val calendar = Calendar.getInstance()
         calendar.time = date
@@ -154,12 +210,22 @@ object DateUtility {
                 calendar.get(Calendar.MONTH) + 1)
     }
 
+    /**
+     * Create YearMonth from Int such as `201807`.
+     *
+     * @param yearMonthNumber
+     */
     fun createYearMonth(yearMonthNumber: Int): YearMonth {
         return createYearMonth(
                 yearMonthNumber / 100,
                 yearMonthNumber % 100)
     }
 
+    /**
+     * Create YearMonth from Long such as `201807`.
+     *
+     * @param yearMonthNumber
+     */
     fun createYearMonth(yearMonthNumber: Long): YearMonth {
         return createYearMonth(
                 (yearMonthNumber / 100).toInt(),
@@ -194,6 +260,9 @@ object DateUtility {
     }
     // </editor-fold>
 
+    /**
+     * Create Year instance that indicates current year.
+     */
     fun createCurrentYear(): Year {
         return Year.now()
     }
