@@ -21,7 +21,7 @@ apply {
 
 
 group = "com.improve_future"
-version = "1.0-SNAPSHOT"
+version = "0.0.1"
 
 repositories {
     mavenCentral()
