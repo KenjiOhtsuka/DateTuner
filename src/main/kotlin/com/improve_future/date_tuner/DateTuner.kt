@@ -12,6 +12,7 @@ object DateTuner {
     fun formatToSlashSeparatedDate(date: Date) : String {
         return slashDateFormatter.format(date)
     }
+    @JvmStatic
     fun formatToNullableSlashSeparatedDate(date: Date?): String? {
         date ?: return null
         return formatToSlashSeparatedDate(date)
@@ -22,6 +23,7 @@ object DateTuner {
      *
      * @param localDate
      */
+    @JvmStatic
     fun formatToSlashSeparatedDate(localDate: LocalDate): String {
         return formatToSlashSeparatedDate(
                 createDate(localDate))
@@ -32,6 +34,7 @@ object DateTuner {
      *
      * @param localDate
      */
+    @JvmStatic
     fun formatToNullableSlashSeparatedDate(localDate: LocalDate?): String? {
         localDate ?: return null
         return formatToSlashSeparatedDate(localDate)
@@ -45,6 +48,7 @@ object DateTuner {
      *
      * @param yearMonth
      */
+    @JvmStatic
     fun formatToSlashSeparatedYearMonth(yearMonth: YearMonth) : String {
         return yearMonth.format(slashFormatterFromYearMonthToYearMonth)
     }
@@ -55,6 +59,7 @@ object DateTuner {
      *
      * @param date
      */
+    @JvmStatic
     fun formatToHyphenSeparatedDate(date: Date): String {
         return hyphenDateFormatter.format(date)
     }
@@ -64,6 +69,7 @@ object DateTuner {
      *
      * @param localDate
      */
+    @JvmStatic
     fun formatToHyphenSeparatedDate(localDate: LocalDate): String {
         return formatToHyphenSeparatedDate(
                 createDate(localDate))
@@ -74,6 +80,7 @@ object DateTuner {
      *
      * @param date
      */
+    @JvmStatic
     fun formatToNullableHyphenSeparatedDate(date: Date?): String? {
         if (date == null) return null
         return hyphenDateFormatter.format(date)
@@ -109,6 +116,7 @@ object DateTuner {
      *
      * @param time
      */
+    @JvmStatic
     fun formatToColonSeparatedHourMinute(time: LocalTime): String {
         return colonFormatterToHourMinute.format(time)
     }
@@ -116,6 +124,7 @@ object DateTuner {
     /**
      * Convert LocalTime to String? such as "12:34".
      */
+    @JvmStatic
     fun formatToNullableColonSeparatedHourMinute(
             time: LocalTime?): String? {
         if (time == null) return null
@@ -126,9 +135,11 @@ object DateTuner {
     // <editor-fold desc="datetime formatter">
     private val globalStyleFormatterToDateTime =
             SimpleDateFormat("yyyy-MM-dd hh:mm")
+    @JvmStatic
     fun formatToGlobalStyledDateTime(date: Date): String {
         return globalStyleFormatterToDateTime.format(date)
     }
+    @JvmStatic
     fun formatToNullableGlobalStyledDateTime(date: Date?): String? {
         date ?: return null
         return formatToGlobalStyledDateTime(date)
@@ -136,17 +147,20 @@ object DateTuner {
     // </editor-fold>
 
     // <editor-fold desc="date factory">
+    @JvmStatic
     fun createDate(year: Int, month: Int, day: Int): Date {
         val calendar = Calendar.getInstance()
         calendar.set(year, month - 1, day)
         return calendar.time
     }
 
+    @JvmStatic
     fun createDate(localDate: LocalDate): Date {
         return Date.from(localDate.
                 atStartOfDay(ZoneId.systemDefault()).toInstant())
     }
 
+    @JvmStatic
     fun createCurrentDate(): Date {
         return Date()
     }
@@ -154,6 +168,7 @@ object DateTuner {
     /**
      * Create Date that indicate current time on yesterday.
      */
+    @JvmStatic
     fun createNowOfYesterday(): Date {
         val calendar = Calendar.getInstance()
         calendar.time = Date()
@@ -164,19 +179,23 @@ object DateTuner {
         return calendar.time
     }
 
+    @JvmStatic
     fun createDateFromSlashedString(dateString: String): Date {
         return slashDateFormatter.parse(dateString)
     }
 
+    @JvmStatic
     fun createNullableDateFromSlashedString(dateString: String?): Date? {
         if (dateString == null) return null
         return createDateFromSlashedString(dateString)
     }
 
+    @JvmStatic
     fun createDateFromHyphenSeparatedString(dateString: String): Date {
         return hyphenDateFormatter.parse(dateString)
     }
 
+    @JvmStatic
     fun createNullableDateFromHyphenSeparatedString(dateString: String?): Date? {
         if (dateString == null) return null
         return createDateFromHyphenSeparatedString(dateString)
@@ -184,6 +203,7 @@ object DateTuner {
     // </editor-fold>
 
     // <editor-fold desc="year-month factory">
+    @JvmStatic
     fun createYearMonth(year: Int, month: Int): YearMonth {
         return YearMonth.of(year, month)
     }
@@ -194,6 +214,7 @@ object DateTuner {
      * @param year
      * @param month
      */
+    @JvmStatic
     fun createYearMonth(year: Number, month: Number): YearMonth {
         return createYearMonth(year.toInt(), month.toInt())
     }
@@ -203,6 +224,7 @@ object DateTuner {
      *
      * @param date
      */
+    @JvmStatic
     fun createYearMonth(date: Date = Date()): YearMonth {
         val calendar = Calendar.getInstance()
         calendar.time = date
@@ -216,6 +238,7 @@ object DateTuner {
      *
      * @param yearMonthNumber
      */
+    @JvmStatic
     fun createYearMonth(yearMonthNumber: Int): YearMonth {
         return createYearMonth(
                 yearMonthNumber / 100,
@@ -227,33 +250,39 @@ object DateTuner {
      *
      * @param yearMonthNumber
      */
+    @JvmStatic
     fun createYearMonth(yearMonthNumber: Long): YearMonth {
         return createYearMonth(
                 (yearMonthNumber / 100).toInt(),
                 (yearMonthNumber % 100).toInt())
     }
 
+    @JvmStatic
     fun differenceInMonth(fromYearMonth: YearMonth, toYearMonth: YearMonth): Long {
         return ((toYearMonth.year - fromYearMonth.year) * 12 +
                 toYearMonth.monthValue - fromYearMonth.monthValue).toLong()
     }
 
+    @JvmStatic
     fun createPreviousYearMonth(offset: Long = 1): YearMonth {
         return createYearMonth().minusMonths(offset)
     }
 
+    @JvmStatic
     fun createNextYearMonth(offset: Long = 1): YearMonth {
         return createYearMonth().plusMonths(offset)
     }
     // </editor-fold>
 
     // <editor-fold desc="time factory">
+    @JvmStatic
     fun createTimeFromColonSeparatedString(
             timeString: String): LocalTime {
         return LocalTime.parse(
                 timeString, colonFormatterToHourMinute)
     }
 
+    @JvmStatic
     fun createNullableTimeFromColonSeparatedString(
             timeString: String?): LocalTime? {
         if (timeString == null) return null
@@ -264,6 +293,7 @@ object DateTuner {
     /**
      * Create Year instance that indicates current year.
      */
+    @JvmStatic
     fun createCurrentYear(): Year {
         return Year.now()
     }
