@@ -30,7 +30,7 @@ tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
 
-dokka {
-    outputFormat = 'html'
-    outputDirectory = Paths.get("docs", "api").toString()
-}
+//dokka {
+//    outputFormat = 'html'
+//    outputDirectory = Paths.get("docs", "api").toString()
+//}
