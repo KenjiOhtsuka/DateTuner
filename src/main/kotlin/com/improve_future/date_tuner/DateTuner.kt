@@ -90,11 +90,13 @@ object DateTuner {
     // <editor-fold defaultstate="collapsed" desc="year-month-formatter">
     private val hyphenFormatterFromYearMonthToYearMonth =
             DateTimeFormatter.ofPattern("yyyy-MM")
+    @JvmStatic
     fun formatToHyphenSeparatedYearMonth(yearMonth: YearMonth): String {
         return yearMonth.format(
                 hyphenFormatterFromYearMonthToYearMonth)
     }
 
+    @JvmStatic
     fun formatYearMonth(yearMonth: YearMonth, pattern: String): String {
         val formatter = DateTimeFormatter.ofPattern(pattern)
         return yearMonth.format(formatter)
@@ -102,6 +104,7 @@ object DateTuner {
 
     private val hyphenFormatterToYearMonth =
         SimpleDateFormat("yyyy-MM")
+    @JvmStatic
     fun formatToHyphenSeparatedYearMonth(date: Date): String {
         return hyphenFormatterToYearMonth.format(date)
     }
