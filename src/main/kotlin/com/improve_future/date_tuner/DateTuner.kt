@@ -5,9 +5,10 @@ import java.time.*
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-object DateUtility {
+object DateTuner {
     // <editor-fold defaultstate="collapsed" desc="date-formatter">
     private val slashDateFormatter = SimpleDateFormat("yyyy/MM/dd")
+    @JvmStatic
     fun formatToSlashSeparatedDate(date: Date) : String {
         return slashDateFormatter.format(date)
     }

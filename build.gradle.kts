@@ -29,6 +29,7 @@ repositories {
 
 dependencies {
     compile(kotlin("stdlib-jdk8"))
+    testCompile(kotlin("kotlin-test"))
     testCompile(kotlin("kotlin-test-junit5"))
 }
 
