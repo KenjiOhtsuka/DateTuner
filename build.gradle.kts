@@ -31,7 +31,7 @@ dependencies {
     compile(kotlin("stdlib-jdk8"))
     //testCompile(kotlin("kotlin-test"))
     testCompile(kotlin("test-junit5"))
-    testCompile("org.junit.jupiter:junit-jupiter-api:5.2.0")
+    //testCompile("org.junit.jupiter:junit-jupiter-api:5.2.0")
     //testRuntime('org.junit.jupiter:junit-jupiter-engine:5.2.0')
 }
 
