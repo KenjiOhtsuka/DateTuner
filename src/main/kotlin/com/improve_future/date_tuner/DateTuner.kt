@@ -151,11 +151,28 @@ object DateTuner {
 
     // <editor-fold desc="date factory">
     @JvmStatic
-    fun createDate(year: Int, month: Int, day: Int): Date {
+    fun createDate(
+        year: Int,
+        month: Int,
+        day: Int): Date {
         val calendar = Calendar.getInstance()
         calendar.set(year, month - 1, day)
         return calendar.time
     }
+
+    @JvmStatic
+    fun createDate(
+        year: Int,
+        month: Int,
+        day: Int,
+        hour: Int,
+        minute: Int,
+        second: Int): Date {
+        val calendar = Calendar.getInstance()
+        calendar.set(year, month - 1, day, hour, minute, second)
+        return calendar.time
+    }
+
 
     @JvmStatic
     fun createDate(localDate: LocalDate): Date {
