@@ -9,12 +9,22 @@ import java.util.*
 class DateTunerTest {
     @Test
     fun testCreateDate() {
-        val date = DateTuner.createDate(2000, 1, 2)
+        var date = DateTuner.createDate(2000, 1, 2)
         val calendar = Calendar.getInstance()
         calendar.time = date
         assertEquals(2000, calendar.get(Calendar.YEAR))
         assertEquals(0, calendar.get(Calendar.MONTH))
         assertEquals(2, calendar.get(Calendar.DAY_OF_MONTH))
+
+        date = DateTuner.createDate(
+            2000, 2, 1, 4, 5, 6)
+        calendar.time = date
+        assertEquals(2000, calendar.get(Calendar.YEAR))
+        assertEquals(1, calendar.get(Calendar.MONTH))
+        assertEquals(1, calendar.get(Calendar.DAY_OF_MONTH))
+        assertEquals(4, calendar.get(Calendar.HOUR_OF_DAY))
+        assertEquals(5, calendar.get(Calendar.MINUTE))
+        assertEquals(6, calendar.get(Calendar.SECOND))
     }
 
     @Test
