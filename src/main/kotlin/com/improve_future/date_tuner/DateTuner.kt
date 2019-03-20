@@ -8,10 +8,12 @@ import java.util.*
 object DateTuner {
     // <editor-fold defaultstate="collapsed" desc="date-formatter">
     private val slashDateFormatter = SimpleDateFormat("yyyy/MM/dd")
+
     @JvmStatic
-    fun formatToSlashSeparatedDate(date: Date) : String {
+    fun formatToSlashSeparatedDate(date: Date): String {
         return slashDateFormatter.format(date)
     }
+
     @JvmStatic
     fun formatToNullableSlashSeparatedDate(date: Date?): String? {
         date ?: return null
@@ -26,7 +28,8 @@ object DateTuner {
     @JvmStatic
     fun formatToSlashSeparatedDate(localDate: LocalDate): String {
         return formatToSlashSeparatedDate(
-                createDate(localDate))
+            createDate(localDate)
+        )
     }
 
     /**
@@ -41,7 +44,7 @@ object DateTuner {
     }
 
     private val slashFormatterFromYearMonthToYearMonth =
-            DateTimeFormatter.ofPattern("yyyy/MM")
+        DateTimeFormatter.ofPattern("yyyy/MM")
 
     /**
      * Convert YearMonth to String such as "2018/08"
@@ -49,7 +52,7 @@ object DateTuner {
      * @param yearMonth
      */
     @JvmStatic
-    fun formatToSlashSeparatedYearMonth(yearMonth: YearMonth) : String {
+    fun formatToSlashSeparatedYearMonth(yearMonth: YearMonth): String {
         return yearMonth.format(slashFormatterFromYearMonthToYearMonth)
     }
 
@@ -72,7 +75,8 @@ object DateTuner {
     @JvmStatic
     fun formatToHyphenSeparatedDate(localDate: LocalDate): String {
         return formatToHyphenSeparatedDate(
-                createDate(localDate))
+            createDate(localDate)
+        )
     }
 
     /**
@@ -89,11 +93,13 @@ object DateTuner {
 
     // <editor-fold defaultstate="collapsed" desc="year-month-formatter">
     private val hyphenFormatterFromYearMonthToYearMonth =
-            DateTimeFormatter.ofPattern("yyyy-MM")
+        DateTimeFormatter.ofPattern("yyyy-MM")
+
     @JvmStatic
     fun formatToHyphenSeparatedYearMonth(yearMonth: YearMonth): String {
         return yearMonth.format(
-                hyphenFormatterFromYearMonthToYearMonth)
+            hyphenFormatterFromYearMonthToYearMonth
+        )
     }
 
     @JvmStatic
@@ -104,6 +110,7 @@ object DateTuner {
 
     private val hyphenFormatterToYearMonth =
         SimpleDateFormat("yyyy-MM")
+
     @JvmStatic
     fun formatToHyphenSeparatedYearMonth(date: Date): String {
         return hyphenFormatterToYearMonth.format(date)
@@ -129,7 +136,8 @@ object DateTuner {
      */
     @JvmStatic
     fun formatToNullableColonSeparatedHourMinute(
-            time: LocalTime?): String? {
+        time: LocalTime?
+    ): String? {
         if (time == null) return null
         return formatToColonSeparatedHourMinute(time)
     }
@@ -137,11 +145,13 @@ object DateTuner {
 
     // <editor-fold desc="datetime formatter">
     private val globalStyleFormatterToDateTime =
-            SimpleDateFormat("yyyy-MM-dd hh:mm")
+        SimpleDateFormat("yyyy-MM-dd hh:mm")
+
     @JvmStatic
     fun formatToGlobalStyledDateTime(date: Date): String {
         return globalStyleFormatterToDateTime.format(date)
     }
+
     @JvmStatic
     fun formatToNullableGlobalStyledDateTime(date: Date?): String? {
         date ?: return null
@@ -154,7 +164,8 @@ object DateTuner {
     fun createDate(
         year: Int,
         month: Int,
-        day: Int): Date {
+        day: Int
+    ): Date {
         val calendar = Calendar.getInstance()
         calendar.set(year, month - 1, day)
         return calendar.time
@@ -167,7 +178,8 @@ object DateTuner {
         day: Int,
         hour: Int,
         minute: Int,
-        second: Int): Date {
+        second: Int
+    ): Date {
         val calendar = Calendar.getInstance()
         calendar.set(year, month - 1, day, hour, minute, second)
         return calendar.time
@@ -176,8 +188,9 @@ object DateTuner {
 
     @JvmStatic
     fun createDate(localDate: LocalDate): Date {
-        return Date.from(localDate.
-                atStartOfDay(ZoneId.systemDefault()).toInstant())
+        return Date.from(
+            localDate.atStartOfDay(ZoneId.systemDefault()).toInstant()
+        )
     }
 
     @JvmStatic
@@ -193,9 +206,10 @@ object DateTuner {
         val calendar = Calendar.getInstance()
         calendar.time = Date()
         calendar.set(
-                calendar.get(Calendar.YEAR),
-                calendar.get(Calendar.MONTH),
-                calendar.get(Calendar.DAY_OF_MONTH) - 1)
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH) - 1
+        )
         return calendar.time
     }
 
@@ -249,8 +263,9 @@ object DateTuner {
         val calendar = Calendar.getInstance()
         calendar.time = date
         return createYearMonth(
-                calendar.get(Calendar.YEAR),
-                calendar.get(Calendar.MONTH) + 1)
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH) + 1
+        )
     }
 
     /**
@@ -261,8 +276,9 @@ object DateTuner {
     @JvmStatic
     fun createYearMonth(yearMonthNumber: Int): YearMonth {
         return createYearMonth(
-                yearMonthNumber / 100,
-                yearMonthNumber % 100)
+            yearMonthNumber / 100,
+            yearMonthNumber % 100
+        )
     }
 
     /**
@@ -273,38 +289,42 @@ object DateTuner {
     @JvmStatic
     fun createYearMonth(yearMonthNumber: Long): YearMonth {
         return createYearMonth(
-                (yearMonthNumber / 100).toInt(),
-                (yearMonthNumber % 100).toInt())
+            (yearMonthNumber / 100).toInt(),
+            (yearMonthNumber % 100).toInt()
+        )
     }
 
     @JvmStatic
-    fun differenceInMonth(fromYearMonth: YearMonth, toYearMonth: YearMonth): Long {
+    fun differenceInMonth(
+        fromYearMonth: YearMonth,
+        toYearMonth: YearMonth
+    ): Long {
         return ((toYearMonth.year - fromYearMonth.year) * 12 +
                 toYearMonth.monthValue - fromYearMonth.monthValue).toLong()
     }
 
     @JvmStatic
-    fun createPreviousYearMonth(offset: Long = 1): YearMonth {
-        return createYearMonth().minusMonths(offset)
-    }
+    fun createPreviousYearMonth(offset: Long = 1) =
+        createYearMonth().minusMonths(offset)
 
     @JvmStatic
-    fun createNextYearMonth(offset: Long = 1): YearMonth {
-        return createYearMonth().plusMonths(offset)
-    }
+    fun createNextYearMonth(offset: Long = 1) =
+        createYearMonth().plusMonths(offset)
     // </editor-fold>
 
     // <editor-fold desc="time factory">
     @JvmStatic
     fun createTimeFromColonSeparatedString(
-            timeString: String): LocalTime {
-        return LocalTime.parse(
-                timeString, colonFormatterToHourMinute)
-    }
+        timeString: String
+    ): LocalTime =
+        LocalTime.parse(
+            timeString, colonFormatterToHourMinute
+        )
 
     @JvmStatic
     fun createNullableTimeFromColonSeparatedString(
-            timeString: String?): LocalTime? {
+        timeString: String?
+    ): LocalTime? {
         if (timeString == null) return null
         return createTimeFromColonSeparatedString(timeString)
     }
@@ -317,8 +337,36 @@ object DateTuner {
     fun createCurrentYear(): Year {
         return Year.now()
     }
-    
-        fun getMonth(date: Date): Int {
+
+    @JvmStatic
+    fun getMonth(date: Date): Int {
+        val calendar = Calendar.getInstance()
+        calendar.time = date
+        return calendar.get(Calendar.YEAR)
+    }
+
+    @JvmStatic
+    fun getMonth(yearMonth: YearMonth): Int = yearMonth.month.value
+
+    @JvmStatic
+    fun getYear(date: Date): Int {
+        val calendar = Calendar.getInstance()
+        calendar.time = date
+        return calendar.get(Calendar.MONTH) + 1
+    }
+
+    @JvmStatic
+    fun getYear(yearMonth: YearMonth): Int = yearMonth.year
+
+    @JvmStatic
+    fun getDay(date: Date): Int {
+        val calendar = Calendar.getInstance()
+        calendar.time = date
+        return calendar.get(Calendar.DAY_OF_MONTH)
+    }
+
+    @JvmStatic
+    fun getMonth(date: Date): Int {
         val calendar = Calendar.getInstance()
         calendar.time = date
         return calendar.get(Calendar.YEAR)
