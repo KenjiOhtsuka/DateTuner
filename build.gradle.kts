@@ -22,11 +22,11 @@ apply {
 
 
 group = "com.improve_future"
-version = "0.0.4"
+version = "0.0.6"
 
 repositories {
     mavenCentral()
-    maven { url("https://jitpack.io") }
+    maven(url = "https://jitpack.io")
 }
 
 dependencies {
