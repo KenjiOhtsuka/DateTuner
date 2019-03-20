@@ -32,3 +32,11 @@ Here are some example.
     // You can put offset as an argument
     DateTuber.createPreviousYearMonth(2)
     ```
+
+* When you want to get month number from a `Date` or `YearMonth` object,
+you can get it through the same method.
+
+    ```kotlin
+    DateTuner.getMonth(date)
+    DateTuner.getMonth(yearMonth)
+    ```
