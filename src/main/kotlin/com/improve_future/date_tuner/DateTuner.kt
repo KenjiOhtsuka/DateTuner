@@ -334,9 +334,7 @@ object DateTuner {
      * Create Year instance that indicates current year.
      */
     @JvmStatic
-    fun createCurrentYear(): Year {
-        return Year.now()
-    }
+    fun createCurrentYear() = Year.now()
 
     @JvmStatic
     fun getMonth(date: Date): Int {
