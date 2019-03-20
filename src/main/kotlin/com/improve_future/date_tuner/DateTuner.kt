@@ -364,31 +364,4 @@ object DateTuner {
         calendar.time = date
         return calendar.get(Calendar.DAY_OF_MONTH)
     }
-
-    @JvmStatic
-    fun getMonth(date: Date): Int {
-        val calendar = Calendar.getInstance()
-        calendar.time = date
-        return calendar.get(Calendar.YEAR)
-    }
-
-    @JvmStatic
-    fun getMonth(yearMonth: YearMonth): Int = yearMonth.month.value
-
-    @JvmStatic
-    fun getYear(date: Date): Int {
-        val calendar = Calendar.getInstance()
-        calendar.time = date
-        return calendar.get(Calendar.MONTH) + 1
-    }
-
-    @JvmStatic
-    fun getYear(yearMonth: YearMonth): Int = yearMonth.year
-
-    @JvmStatic
-    fun getDay(date: Date): Int {
-        val calendar = Calendar.getInstance()
-        calendar.time = date
-        return calendar.get(Calendar.DAY_OF_MONTH)
-    }
 }
