@@ -17,6 +17,7 @@ plugins {
 }
 apply {
     plugin("org.jetbrains.dokka")
+    plugin("maven")
 }
 
 
