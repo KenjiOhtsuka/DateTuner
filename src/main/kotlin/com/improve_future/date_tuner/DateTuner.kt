@@ -183,7 +183,7 @@ object DateTuner {
 
 
     @JvmStatic
-    fun createDate(localDate: LocalDate) =
+    fun createDate(localDate: LocalDate): Date =
         Date.from(
             localDate.atStartOfDay(ZoneId.systemDefault()).toInstant()
         )
