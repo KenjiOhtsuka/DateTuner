@@ -35,14 +35,29 @@ class DateTunerTest {
         assertEquals(2, calendar.get(Calendar.DAY_OF_MONTH))
 
         date = DateTuner.createDate(
-            2000, 2, 1, 4, 5, 6)
+            2000, 2, 1, 14, 5, 6)
         calendar.time = date
         assertEquals(2000, calendar.get(Calendar.YEAR))
         assertEquals(1, calendar.get(Calendar.MONTH))
         assertEquals(1, calendar.get(Calendar.DAY_OF_MONTH))
-        assertEquals(4, calendar.get(Calendar.HOUR_OF_DAY))
+        assertEquals(14, calendar.get(Calendar.HOUR_OF_DAY))
         assertEquals(5, calendar.get(Calendar.MINUTE))
         assertEquals(6, calendar.get(Calendar.SECOND))
+
+        date = DateTuner.createDate(201205)
+        assertEquals(
+            "2012-05-01 00:00:00",
+            DateTuner.formatToGlobalStyleDateTimeWithSecond(date)
+        )
+    }
+
+    @Test
+    fun testFormatGlobalStyleDateTimeWithSecond() {
+        val date = DateTuner.createDate(2000, 1, 2, 13, 4, 5)
+        assertEquals(
+            "2000-01-02 13:04:05",
+            DateTuner.formatToGlobalStyleDateTimeWithSecond(date)
+        )
     }
 
     @Test
