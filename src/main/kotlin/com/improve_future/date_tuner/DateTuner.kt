@@ -164,7 +164,7 @@ object DateTuner {
 
     @JvmStatic
     private val globalStyleFormatterToDateTimeWithSecond =
-        SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
+        SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 
     @JvmStatic
     fun formatToGlobalStyleDateTime(date: Date) =
@@ -193,19 +193,23 @@ object DateTuner {
 
     @JvmStatic
     fun createDate(
-        year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int
+        year: Int, month: Int, day: Int = 1, hour: Int = 0, minute: Int = 0,
+        second: Int = 0
     ): Date {
         val calendar = Calendar.getInstance()
         calendar.set(year, month - 1, day, hour, minute, second)
         return calendar.time
     }
 
-
     @JvmStatic
     fun createDate(localDate: LocalDate): Date =
         Date.from(
             localDate.atStartOfDay(ZoneId.systemDefault()).toInstant()
         )
+
+    @JvmStatic
+    fun createDate(yearMonth: Number): Date =
+        createDate((yearMonth.toLong() / 100).toInt(), (yearMonth.toLong() % 100).toInt())
 
     @JvmStatic
     fun createCurrentDate() = Date()
