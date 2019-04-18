@@ -163,22 +163,28 @@ object DateTuner {
         SimpleDateFormat("yyyy-MM-dd hh:mm")
 
     @JvmStatic
-    fun formatToGlobalStyledDateTime(date: Date) =
+    private val globalStyleFormatterToDateTimeWithSecond =
+        SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
+
+    @JvmStatic
+    fun formatToGlobalStyleDateTime(date: Date) =
         globalStyleFormatterToDateTime.format(date)
+
+    @JvmStatic
+    fun formatToGlobalStyleDateTimeWithSecond(date: Date) =
+        globalStyleFormatterToDateTimeWithSecond.format(date)
 
     @JvmStatic
     fun formatToNullableGlobalStyledDateTime(date: Date?): String? {
         date ?: return null
-        return formatToGlobalStyledDateTime(date)
+        return formatToGlobalStyleDateTime(date)
     }
     // </editor-fold>
 
     // <editor-fold desc="date factory">
     @JvmStatic
     fun createDate(
-        year: Int,
-        month: Int,
-        day: Int
+        year: Int, month: Int, day: Int
     ): Date {
         val calendar = Calendar.getInstance()
         calendar.set(year, month - 1, day)
@@ -187,12 +193,7 @@ object DateTuner {
 
     @JvmStatic
     fun createDate(
-        year: Int,
-        month: Int,
-        day: Int,
-        hour: Int,
-        minute: Int,
-        second: Int
+        year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int
     ): Date {
         val calendar = Calendar.getInstance()
         calendar.set(year, month - 1, day, hour, minute, second)

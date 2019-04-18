@@ -46,6 +46,15 @@ class DateTunerTest {
     }
 
     @Test
+    fun testFormatGlobalStyleDateTimeWithSecond() {
+        val date = DateTuner.createDate(2000, 1, 2, 3, 4, 5)
+        assertEquals(
+            "2000-01-02 03:04:05",
+            DateTuner.formatToGlobalStyleDateTimeWithSecond(date)
+        )
+    }
+
+    @Test
     fun testFormatToSlashSeparatedDate() {
         val date = DateTuner.createDate(2000, 1, 2)
         assertEquals(

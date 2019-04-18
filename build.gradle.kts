@@ -31,7 +31,7 @@ buildscript {
 
 plugins {
     java
-    kotlin("jvm") version "1.3.21"
+    kotlin("jvm") version "1.3.30"
 }
 apply {
     plugin("org.jetbrains.dokka")
@@ -40,7 +40,7 @@ apply {
 
 
 group = "com.improve_future"
-version = "0.0.6"
+version = "0.0.7"
 
 repositories {
     mavenCentral()
