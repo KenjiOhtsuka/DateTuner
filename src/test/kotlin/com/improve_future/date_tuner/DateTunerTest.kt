@@ -52,6 +52,15 @@ class DateTunerTest {
     }
 
     @Test
+    fun testFormatGlobalStyleDateTime() {
+        val date = DateTuner.createDate(2000, 1, 2, 13, 4, 5)
+        assertEquals(
+            "2000-01-02 13:04",
+            DateTuner.formatToGlobalStyleDateTime(date)
+        )
+    }
+
+    @Test
     fun testFormatGlobalStyleDateTimeWithSecond() {
         val date = DateTuner.createDate(2000, 1, 2, 13, 4, 5)
         assertEquals(
