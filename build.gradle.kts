@@ -40,7 +40,7 @@ apply {
 
 
 group = "com.improve_future"
-version = "0.0.7"
+version = "0.0.8"
 
 repositories {
     mavenCentral()

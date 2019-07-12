@@ -160,7 +160,7 @@ object DateTuner {
 
     // <editor-fold desc="datetime formatter">
     private val globalStyleFormatterToDateTime =
-        SimpleDateFormat("yyyy-MM-dd hh:mm")
+        SimpleDateFormat("yyyy-MM-dd HH:mm")
 
     @JvmStatic
     private val globalStyleFormatterToDateTimeWithSecond =

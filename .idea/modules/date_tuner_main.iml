@@ -36,19 +36,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library name="Gradle: com.github.KenjiOhtsuka:DateTuner:0.0.4">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../Could not find com.github.KenjiOhtsuka:DateTuner:0.0.4.&#10;Searched in the following locations:&#10;  - https:/repo.maven.apache.org/maven2/com/github/KenjiOhtsuka/DateTuner/0.0.4/DateTuner-0.0.4.pom&#10;  - https:/repo.maven.apache.org/maven2/com/github/KenjiOhtsuka/DateTuner/0.0.4/DateTuner-0.0.4.jar&#10;  - https:/jitpack.io/com/github/KenjiOhtsuka/DateTuner/0.0.4/DateTuner-0.0.4.pom&#10;  - https:/jitpack.io/com/github/KenjiOhtsuka/DateTuner/0.0.4/DateTuner-0.0.4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.3.21" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.21" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.21" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.30" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.30" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.3.30" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.30" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.21" level="project" />
   </component>
 </module>
