@@ -131,6 +131,18 @@ object DateTuner {
     @JvmStatic
     fun formatToHyphenSeparatedYearMonth(date: Date) =
         hyphenFormatterToYearMonth.format(date)
+
+    /**
+     * Convert YearMonth object to 6 digits.
+     *
+     * YearMonth object of Jan. 2019 will be converted to `201901`, for example.
+     *
+     * @param yearMonth The YearMonth to be converted.
+     * @return Number of YearMonth.
+     */
+    @JvmStatic
+    fun convertToIntYearMonth(yearMonth: YearMonth): Int =
+        yearMonth.year * 100 + yearMonth.monthValue
     // </editor-fold>
 
     // <editor-fold desc="time formatter">

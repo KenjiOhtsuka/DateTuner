@@ -100,4 +100,10 @@ class DateTunerTest {
                 -18,
                 DateTuner.differenceInMonth(toYearMonth, fromYearMonth))
     }
+
+    @Test
+    fun testConvertToIntYearMonth() {
+        val yearMonth = YearMonth.of(2019, 1)
+        assertEquals(201901, DateTuner.convertToIntYearMonth(yearMonth))
+    }
 }
