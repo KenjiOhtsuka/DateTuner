@@ -42,3 +42,15 @@ you can get it through the same method.
     DateTuner.getMonth(date)
     DateTuner.getMonth(yearMonth)
     ```
+
+## Gradle configuration
+
+```gradle
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    implementation("com.github.KenjiOhtsuka:DateTuner:0.0.9")
+}
+```
